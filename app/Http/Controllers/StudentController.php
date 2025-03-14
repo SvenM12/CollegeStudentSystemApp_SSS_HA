@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\College;
+use App\Models\Student;
 
 class StudentController extends Controller
 {
     public function index() {
-        $students = Student::all();
-        return view('students.index', compact('students'));
+        $student = Student::all();
+        return view('students.index', compact('student'));
     }
 
     public function create() {
@@ -19,7 +21,7 @@ class StudentController extends Controller
 
     public function edit($id) {
         $student = Student::find($id);
-        return view('students.show', compact('student'));
+        return view('students.edit', compact('student'));
     }
 
     public function destroy($id) {

@@ -1,0 +1,1 @@
+<h1>College Index </h1>

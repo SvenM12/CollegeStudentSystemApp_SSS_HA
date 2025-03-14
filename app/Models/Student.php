@@ -10,7 +10,6 @@ class Student extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'email', 'phone', 'dob'];
-
     public function colleges() {
         $this->belongsTo(Company::class);
     }
