@@ -27,6 +27,12 @@ Route::get('/colleges/create', [CollegeController::class, 'create'])->name('coll
 //Route that shows the college edit form
 Route::get('/colleges/edit/{id}', [CollegeController::class, 'edit'])->name('colleges.edit');
 
+//Route that shows a specific college details
+Route::get('/colleges/show/{id}', [CollegeController::class, 'show'])->name('colleges.show');
+
+//Route that will delete a specific college entry
+Route::get('/college/{id}', [CollegeController::class, 'destory'])->name('colleges.destroy');
+
 //Route that returns a list of students
 Route::get('/students', [StudentController::class, 'index'])->name('students.index');
 
@@ -36,5 +42,8 @@ Route::get('/students/create', [StudentController::class, 'create'])->name('stud
 //Route that shows the student edit form
 Route::get('/students/edit/{id}', [StudentController::class, 'edit'])->name('students.edit');
 
+//Route that shows a specific student details
+Route::get('/students/show/{id}', [StudentController::class, 'show'])->name('students.show');
+
 //Route that will delete a specific student
-Route::get('/colleges/{id}', [StudentController::class, 'destory'])->name('students.destroy');
+Route::get('/students/{id}', [StudentController::class, 'destory'])->name('students.destroy');
