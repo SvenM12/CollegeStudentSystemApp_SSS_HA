@@ -27,11 +27,17 @@ Route::get('/colleges/create', [CollegeController::class, 'create'])->name('coll
 //Route that shows the college edit form
 Route::get('/colleges/edit/{id}', [CollegeController::class, 'edit'])->name('colleges.edit');
 
+//Route that updates a college entry
+Route::get('/colleges/{id}', [CollegeController::class, 'update'])->name('colleges.update');
+
 //Route that shows a specific college details
 Route::get('/colleges/show/{id}', [CollegeController::class, 'show'])->name('colleges.show');
 
+// route that will store the contents of a new contact
+Route::post('/colleges', [CollegeController::class, 'store'])->name('colleges.store');
+
 //Route that will delete a specific college entry
-Route::get('/college/{id}', [CollegeController::class, 'destory'])->name('colleges.destroy');
+Route::get('/college/{id}', [CollegeController::class, 'destroy'])->name('colleges.destroy');
 
 //Route that returns a list of students
 Route::get('/students', [StudentController::class, 'index'])->name('students.index');

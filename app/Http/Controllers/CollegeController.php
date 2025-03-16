@@ -25,10 +25,33 @@ class CollegeController extends Controller
         return view('colleges.show', compact('college'));
     }
 
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|unique:colleges',
+            'address' => 'required',
+        ]);
+
+        College::create($request->all());
+        return redirect()->route('colleges.index')->with('message', 'College has been added successfully');
+    }
+
     //This will send you to a view where you can edit an existing college's details
     public function edit($id) {
         $college = College::find($id);
         return view('colleges.edit', compact('college'));
+    }
+
+    public function update($id, Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+        ]);
+
+        $college = College::find($id);
+        $college->update($request->all());
+        return redirect()->route('colleges.index')->with('message', 'College has been updated successfully');
     }
 
     //This will destroy the selected college
