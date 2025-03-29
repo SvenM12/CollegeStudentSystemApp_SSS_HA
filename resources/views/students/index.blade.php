@@ -15,7 +15,8 @@
                 </div>
               </div>
             <div class="card-body">
-              
+              @include('students._filter')
+              @include('students._sort')
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>

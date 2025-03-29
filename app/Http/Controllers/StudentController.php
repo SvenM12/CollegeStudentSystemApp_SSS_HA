@@ -17,6 +17,14 @@ class StudentController extends Controller
         else {
             $students = Student::where('college_id', request('college_id'))->get();
         }
+        if (request('name') != null) {
+            $students = Student::orderBy('name', request('name'))->get(); 
+        }
+        if (request('college_id') != null && request('name') != null)
+        {
+            $students = Student::where('college_id', request('college_id'))->orderBy('name', request('name'))->get();
+
+        }
         return view('students.index', compact('students', 'colleges'));
     }
 
@@ -26,6 +34,7 @@ class StudentController extends Controller
         $colleges = College::orderBy('name')->pluck('name', 'id')->prepend('All Colleges', '');
         return view('students.create', compact('colleges', 'student'));
     }
+    
 
     //Validates and adds a new student entry
     public function store(Request $request)
