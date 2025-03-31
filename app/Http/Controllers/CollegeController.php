@@ -25,6 +25,7 @@ class CollegeController extends Controller
         return view('colleges.show', compact('college'));
     }
 
+    //This will add the new college entry submitted
     public function store(Request $request)
     {
         $request->validate([
@@ -42,6 +43,7 @@ class CollegeController extends Controller
         return view('colleges.edit', compact('college'));
     }
 
+    //This will update an existing college entry upon submit
     public function update($id, Request $request)
     {
         $request->validate([
